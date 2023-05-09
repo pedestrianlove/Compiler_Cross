@@ -25,8 +25,8 @@ install:
 
 	# Build binutils
 	(cd $(SOURCE_PATH)/binutils && \
-		./configure $(BINUTILS_CONFIG) --disable-werror) &&
-	$(MAKE) all install $(MAKEFLAGS)
+		./configure $(BINUTILS_CONFIG) --disable-werror)
+	$(MAKE) -C $(SOURCE_PATH) all install $(MAKEFLAGS)
 
 	# Build gcc
 	(cd $(SOURCE_PATH)/gcc && \
