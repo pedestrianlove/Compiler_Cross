@@ -31,8 +31,8 @@ install:
 	# Build gcc
 	(cd $(SOURCE_PATH)/gcc && \
 		./configure $(GCC_CONFIG))
-	$(MAKE) -C $(SOURCE_PATH) all-gcc $(MAKEFLAGS) && \
-		$(MAKE) -C $(SOURCE_PATH) install-gcc $(MAKEFLAGS)
+	$(MAKE) -C $(SOURCE_PATH) all $(MAKEFLAGS) && \
+		$(MAKE) -C $(SOURCE_PATH) install $(MAKEFLAGS)
 
 	# Build newlib
 	(cd $(SOURCE_PATH)/newlib && \
