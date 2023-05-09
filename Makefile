@@ -23,7 +23,7 @@ install:
 	(cd $(SOURCE_PATH) && git clone -b master https://github.com/bminor/newlib.git newlib)
 	(cd $(SOURCE_PATH) && git clone -b master https://github.com/gcc-mirror/gcc.git)
 
-BUILD: BINUTILS GCC NEWLIB
+build: BINUTILS GCC NEWLIB FINISH
 
 BINUTILS:
 	# Build binutils
@@ -48,5 +48,4 @@ NEWLIB:
 FINISH:
 	# export PATH
 	echo "export PATH=$PATH:$(TOOL_PATH)/bin" >> /etc/bash.bashrc
-
 
