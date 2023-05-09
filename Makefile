@@ -23,29 +23,23 @@ install:
 	(cd $(SOURCE_PATH) && git clone -b master https://github.com/bminor/newlib.git newlib)
 	(cd $(SOURCE_PATH) && git clone -b master https://github.com/gcc-mirror/gcc.git)
 
-build: BINUTILS GCC NEWLIB FINISH
-
-BINUTILS:
+build:
 	# Build binutils
 	(cd $(SOURCE_PATH)/binutils && \
 		./configure $(BINUTILS_CONFIG) --disable-werror)
 	$(MAKE) -i -C $(SOURCE_PATH)/binutils all install $(MAKEFLAGS)
 
-GCC:
 	# Build gcc
 	(cd $(SOURCE_PATH)/gcc && \
 		./configure $(GCC_CONFIG))
 	$(MAKE) -C $(SOURCE_PATH)/gcc all-gcc $(MAKEFLAGS) && \
 		$(MAKE) -C $(SOURCE_PATH)/gcc install-gcc $(MAKEFLAGS)
 
-NEWLIB:
 	# Build newlib
 	(cd $(SOURCE_PATH)/newlib && \
 		./configure)
 	$(MAKE) -C $(SOURCE_PATH)/newlib all $(MAKEFLAGS) && \
 		$(MAKE) -C $(SOURCE_PATH)/newlib install $(MAKEFLAGS)
 
-FINISH:
 	# export PATH
-	echo "export PATH=$PATH:$(TOOL_PATH)/bin" >> /etc/bash.bashrc
-
+	echo "export PATH=$$PATH:$(TOOL_PATH)/bin" >> /etc/bash.bashrc
