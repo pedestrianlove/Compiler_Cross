@@ -6,7 +6,7 @@ SOURCE_PATH := /opt/src/
 LIBC_HEADERS := $(SOURCE_PATH)newlib/newlib/include/
 
 # CONFIGS
-BINUTILS_CONFIG := --target=arm-elf-eabi --prefix=$TOOL_PATH --enable-interwork --enable-multilib --with-gnu-as --with-gnu-ld --disable-nls
+BINUTILS_CONFIG := --target=arm-elf-eabi --prefix=$(TOOL_PATH) --enable-interwork --enable-multilib --with-gnu-as --with-gnu-ld --disable-nls
 GCC_CONFIG := --target=arm-elf-eabi --prefix=$(TOOL_PATH) --enable-interwork --enable-multilib --enable-languages="c,c++" --with-float=soft --with-newlib --with-headers=$(LIBC_HEADERS) --disable-shared --with-gnu-as --with-gnu-ld --with-system-zlib
 
 # Run with sudo make
