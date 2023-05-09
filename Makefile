@@ -18,11 +18,12 @@ install:
 	# Fetch source
 	apt install -y git build-essential
 	mkdir -p $(TOOL_PATH)
-	mkdir -p $(SOURCE_PATH) && cd $(SOURCE_PATH)
-	git clone https://github.com/bminor/binutils-gdb.git binutils & \
-	git clone https://github.com/bminor/newlib.git newlib & \
-	git clone https://github.com/gcc-mirror/gcc.git
+	mkdir -p $(SOURCE_PATH)
+	(cd $(SOURCE_PATH) && git clone https://github.com/bminor/binutils-gdb.git binutils) & \
+	(cd $(SOURCE_PATH) && git clone https://github.com/bminor/newlib.git newlib) & \
+	(cd $(SOURCE_PATH) && git clone https://github.com/gcc-mirror/gcc.git)
 
+build:
 	# Build binutils
 	cd $(SOURCE_PATH)/binutils && \
 		./configure $(BINUTILS_CONFIG) --disable-werror
