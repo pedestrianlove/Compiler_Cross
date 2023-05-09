@@ -1,3 +1,5 @@
+# Configure number of jobs that can be run concurrently
+MAKEFLAGS := --jobs=$(shell nproc)
 # PATHs
 TOOL_PATH=/opt/cross_arm/
 SOURCE_PATH=/opt/src/
@@ -24,17 +26,17 @@ install:
 	# Build binutils
 	cd $(SOURCE_PATH)/binutils
 	./configure $(BINUTILS_CONFIG) --prefix=$(TOOL_PATH) --target=arm-elf-eabi --disable-werror
-	make all install
+	make all install $(MAKEFLAGS)
 
 	# Build gcc
 	cd $(SOURCE_PATH)/gcc
 	./configure $(GCC_CONFIG)
-	make all-gcc && make install-gcc
+	make all-gcc $(MAKEFLAGS) && make install-gcc $(MAKEFLAGS)
 
 	# Build newlib
 	cd $(SOURCE_PATH)/newlib
 	./configure
-	make all && make install
+	make all $(MAKEFLAGS) && make install $(MAKEFLAGS)
 
 	# export PATH
 	export PATH=$PATH:$(TOOL_PATH)/bin
