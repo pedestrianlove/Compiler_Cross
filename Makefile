@@ -29,7 +29,7 @@ BINUTILS:
 	# Build binutils
 	(cd $(SOURCE_PATH)/binutils && \
 		./configure $(BINUTILS_CONFIG) --disable-werror)
-	$(MAKE) -C $(SOURCE_PATH)/binutils all install $(MAKEFLAGS)
+	$(MAKE) -i -C $(SOURCE_PATH)/binutils all install $(MAKEFLAGS)
 
 GCC:
 	# Build gcc
