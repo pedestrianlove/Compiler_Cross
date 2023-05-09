@@ -23,7 +23,6 @@ install:
 	(cd $(SOURCE_PATH) && git clone https://github.com/bminor/newlib.git newlib) & \
 	(cd $(SOURCE_PATH) && git clone https://github.com/gcc-mirror/gcc.git)
 
-build:
 	# Build binutils
 	cd $(SOURCE_PATH)/binutils && \
 		./configure $(BINUTILS_CONFIG) --disable-werror
