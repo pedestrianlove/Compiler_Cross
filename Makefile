@@ -17,9 +17,9 @@ install:
 	apt install -y git build-essential
 	mkdir -p $(TOOL_PATH)
 	mkdir -p $(SOURCE_PATH) && cd $(SOURCE_PATH)
-	git clone https://sourceware.org/git/binutils-gdb.git binutils & \
-	git clone https://sourceware.org/git/newlib-cygwin.git newlib & \
-	git clone https://gcc.gnu.org/git/gcc.git
+	git clone https://github.com/bminor/binutils-gdb.git binutils & \
+	git clone https://github.com/bminor/newlib.git newlib & \
+	git clone https://github.com/gcc-mirror/gcc.git
 
 	# Build binutils
 	cd $(SOURCE_PATH)/binutils
