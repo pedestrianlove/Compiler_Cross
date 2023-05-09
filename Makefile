@@ -3,7 +3,7 @@ MAKEFLAGS := --jobs=$(shell nproc)
 # PATHs
 TOOL_PATH := /opt/cross_arm/
 SOURCE_PATH := /opt/src/
-LIBC_HEADERS := $(SOURCE_PATH)newlib/newlib/include/
+LIBC_HEADERS := $(SOURCE_PATH)newlib/newlib/libc/include/
 
 # CONFIGS
 BINUTILS_CONFIG := --target=arm-elf-eabi --prefix=$(TOOL_PATH) --enable-interwork --enable-multilib --with-gnu-as --with-gnu-ld --disable-nls
