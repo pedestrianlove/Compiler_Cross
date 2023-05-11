@@ -16,7 +16,7 @@ install:
 	apt install -y libgmp-dev libmpfr-dev libmpc-dev texinfo
 
 	# Fetch source
-	apt install -y git build-essential bison flex aria2c
+	apt install -y git build-essential bison flex aria2
 	mkdir -p $(TOOL_PATH)
 	mkdir -p $(SOURCE_PATH)
 	(cd $(SOURCE_PATH) && aria2c --input-file sources -j4) 
