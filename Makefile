@@ -16,12 +16,15 @@ install:
 	apt install -y libgmp-dev libmpfr-dev libmpc-dev texinfo
 
 	# Fetch source
-	apt install -y git build-essential bison flex
+	apt install -y git build-essential bison flex aria2c
 	mkdir -p $(TOOL_PATH)
 	mkdir -p $(SOURCE_PATH)
-	(cd $(SOURCE_PATH) && git clone -b master https://github.com/bminor/binutils-gdb.git binutils)
-	(cd $(SOURCE_PATH) && git clone -b master https://github.com/bminor/newlib.git newlib)
-	(cd $(SOURCE_PATH) && git clone -b master https://github.com/gcc-mirror/gcc.git)
+	(cd $(SOURCE_PATH) && aria2c --input-file sources -j4) 
+	((cd $(SOURCE_PATH)) && \
+		((unzip binutils-gdb-master.zip && mv binutils-gdb-master binutils) & \
+		(unzip newlib-master.zip && mv newlib-master newlib) & \
+		(unzip gcc-master.zip && mv gcc-master gcc)))
+
 
 build:
 	# Build binutils
