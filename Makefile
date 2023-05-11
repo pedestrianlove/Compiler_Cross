@@ -19,6 +19,7 @@ install:
 	apt install -y git build-essential bison flex aria2
 	mkdir -p $(TOOL_PATH)
 	mkdir -p $(SOURCE_PATH)
+	cp sources $(SOURCE_PATH)
 	(cd $(SOURCE_PATH) && aria2c --input-file sources -j4) 
 	((cd $(SOURCE_PATH)) && \
 		((unzip binutils-gdb-master.zip && mv binutils-gdb-master binutils) & \
