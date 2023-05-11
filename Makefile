@@ -21,7 +21,7 @@ install:
 	mkdir -p $(SOURCE_PATH)
 	cp sources $(SOURCE_PATH)
 	(cd $(SOURCE_PATH) && aria2c --input-file sources -j4) 
-	unzip /opt/src/*.zip
+	(cd $(SOURCE_PATH) && unzip '*.zip')
 	mv gcc-master gcc
 	mv binutils-gdb-master binutils
 	mv newlib-master newlib
