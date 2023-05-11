@@ -21,9 +21,10 @@ install:
 	mkdir -p $(SOURCE_PATH)
 	cp sources $(SOURCE_PATH)
 	(cd $(SOURCE_PATH) && aria2c --input-file sources -j4) 
-	(((cd $(SOURCE_PATH)) && (unzip binutils-gdb-master.zip && mv binutils-gdb-master binutils)) & \
-	((cd $(SOURCE_PATH)) && (unzip newlib-master.zip && mv newlib-master newlib)) & \
-		((cd $(SOURCE_PATH)) && (unzip gcc-master.zip && mv gcc-master gcc)))
+	unzip /opt/src/*.zip
+	mv gcc-master gcc
+	mv binutils-gdb-master binutils
+	mv newlib-master newlib
 
 
 build:
