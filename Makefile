@@ -47,3 +47,4 @@ build:
 
 	# export PATH
 	echo "export PATH=$$PATH:$(TOOL_PATH)/bin" >> /etc/bash.bashrc
+	source ~/.bashrc
